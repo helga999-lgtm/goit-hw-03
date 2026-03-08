@@ -1,11 +1,16 @@
-from random import randint, sample
-min_value = 1
-max_value = 1000
-length = 8
+import random
 
-get_numbers_ticket = set()
-while len(get_numbers_ticket) != length:
-    get_numbers_ticket.add(randint(min_value, max_value))
+def get_numbers_ticket(min, max, quantity):
 
-print(list(get_numbers_ticket))
+    if min < 1 or max > 1000 or quantity > (max - min + 1):
+        return []
+
+    numbers = random.sample(range(min, max + 1), quantity)
+
+    return sorted(numbers)
+
+
+lottery_numbers = get_numbers_ticket(1, 1000, 6)
+print(lottery_numbers)
+
 
